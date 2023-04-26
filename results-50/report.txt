@@ -1,0 +1,2 @@
+The final accuracy on train-set is 0.953125 
+The final accuracy on test-set is 0.8519230484962463
