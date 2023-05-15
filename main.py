@@ -5,6 +5,7 @@ import tensorflow.keras as tfk
 import matplotlib.pyplot as plt
 import pathlib
 import os
+import sys
 import sklearn.model_selection
 from tensorflow.keras import layers, Sequential, Model
 from keras.utils import plot_model
@@ -14,10 +15,17 @@ from typing import Type
 from utils import utils
 from data_utils import data_utils
 
-# reducing the number of warning we get, although we still get many warnings ;)
-# the layers I used for augmentation are generating those warnings
+## defining the training procedure parameters
+num_epochs = int(sys.argv[1])
+batch_size = 64
+
+# reducing the number of warning we get
 os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"
 #######################################################################################
+path = "./results"
+if not os.path.exists(path):
+    os.makedirs(path)
+
 
 ## pre-processing
 directory = "samples/"
@@ -37,8 +45,6 @@ n_features = len(all_charachter)
 n_timesteps_in = 5
 
 ## defining the training procedure
-num_epochs = 3
-batch_size = 64
 # creating a model
 model = utils.my_model().model()
 # start training (and testing in each epoch)
