@@ -1,4 +1,4 @@
-1- In order to execute the file, use the command below:
+1- In order to execute the file, use the command:
 `python main.py <Number of Epochs for Training>`
 
 2- In the .ipynb notebook available in the current directory, you can find the procedure taken to solve the problem.
